@@ -1,0 +1,26 @@
+[
+    {
+        "name": "UNSC",
+        "max": 5,
+        "current": 0,
+        "dels": []
+    },
+    {
+        "name": "UNGA",
+        "max": 10,
+        "current": 0,
+        "dels": []
+    },
+    {
+        "name": "UNHRC",
+        "max": 10,
+        "current": 0,
+        "dels": []
+    },
+    {
+        "name": "UNESCO",
+        "max": 5,
+        "current": 0,
+        "dels": []
+    }
+]
