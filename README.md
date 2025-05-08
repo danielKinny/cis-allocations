@@ -32,7 +32,7 @@ Due to the high volume of applications received through Google Forms, the alloca
 
 ### Prerequisites
 
-- Install [Node.js](https://nodejs.org/)
+- Install [Node.js](https://nodejs.org/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ### Run the Program
 
