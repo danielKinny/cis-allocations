@@ -8,6 +8,10 @@ export const writeToJson = (outFile,results) => {
 
 export const readCSV = (csvPath) => {
   const results = [];
+
+  const decideLevel = (exp) => {
+    return exp>=7 ? 3 : exp>=4 ? 2 : 1;
+  }
   return new Promise((resolve, reject) => {
     results.length = 0; 
     fs.createReadStream(csvPath)
@@ -19,9 +23,11 @@ export const readCSV = (csvPath) => {
         contactNo: data['Personal contact number:'],
         email: data['Enter your email:'],
         school: data['Enter the name of your school:'],
+        previousExperience: decideLevel(data['How many MUNs have you been to?']),
         committee: "",
       }))
       .on('end', () => {
+        console.log( typeof results[0].previousExperience)
         writeToJson("output.json",results);
         resolve();
       })
