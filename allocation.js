@@ -26,16 +26,15 @@ const allocateDelegates = () =>
     let delegates = JSON.parse(fs.readFileSync("output.json", "utf-8"))
 
     for( let i = 0; i < delegates.length; i++) {
-
         let delegate = delegates[i];
         let pref1 = committees.find((committee) => committee.name === delegate.firstPref);
         let pref2 = committees.find((committee) => committee.name === delegate.secondPref);
 
-        if (pref1.current < pref1.max) {
+        if ((pref1.current < pref1.max) && delegate.previousExperience >= pref1.level) {
             pref1.dels.push(delegate);
             pref1.current++;
             delegate.committee = pref1.name;
-        } else if (pref2.current < pref2.max) {
+        } else if ((pref2.current < pref2.max) && delegate.previousExperience >= pref2.level){
             pref2.dels.push(delegate);
             pref2.current++;
             delegate.committee = pref2.name;
