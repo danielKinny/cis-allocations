@@ -23,8 +23,11 @@ Due to the high volume of applications received through Google Forms, the alloca
 2. **Second Preference Check:**  
    If the first preference is full, the second preference is considered.
 
-3. **Fallback Allocation:**  
-   If both preferences are full, the participant is added to a separate list (`manual_allocations`) for manual assignment by event organisers.
+3. **Experience Check:**
+   Checks if the delegate has had sufficient experience to be assigned to the committee.
+
+5. **Fallback Allocation:**  
+   If both preferences are full, the participant is added to a separate list (`noCom`) for manual assignment by event organisers.
 
 ---
 
