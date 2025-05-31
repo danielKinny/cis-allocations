@@ -24,27 +24,35 @@ const allocateDelegates = () =>
     let noCom = [];
     let committees = JSON.parse(fs.readFileSync("committees.json", "utf-8"))
     let delegates = JSON.parse(fs.readFileSync("output.json", "utf-8"))
-
+try {
     for( let i = 0; i < delegates.length; i++) {
         let delegate = delegates[i];
+
         let pref1 = committees.find((committee) => committee.name === delegate.firstPref);
         let pref2 = committees.find((committee) => committee.name === delegate.secondPref);
+
 
         if ((pref1.current < pref1.max) && delegate.previousExperience >= pref1.level) {
             pref1.dels.push(delegate);
             pref1.current++;
             delegate.committee = pref1.name;
         } else if ((pref2.current < pref2.max) && delegate.previousExperience >= pref2.level){
+            console.log("this runs too");
             pref2.dels.push(delegate);
             pref2.current++;
             delegate.committee = pref2.name;
         } else {
+            console.log("we're here for some reason")
             noCom.push(delegate);
         }
 
     }
 
     writeToXLSX("allocation.xlsx",committees, noCom);
+
+} catch (error) {
+    console.log("An error occurred during allocation:", error);
+}
 
 }
 
@@ -61,6 +69,17 @@ if (noCom.length > 0) {
     const ws = XLSX.utils.json_to_sheet(noCom);
     XLSX.utils.book_append_sheet(wb, ws, "unassigned");
 }
+
+let dels = [];
+
+for (const committee of committees) {
+    for (const del of committee.dels) {
+        dels.push( del );
+    }
+}
+
+const wsAll = XLSX.utils.json_to_sheet(dels);
+XLSX.utils.book_append_sheet(wb, wsAll, "all delegates");
 
 XLSX.writeFile(wb, outName);
 console.log("Excel file created successfully!");

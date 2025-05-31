@@ -8,6 +8,7 @@ export const writeToJson = (outFile,results) => {
 
 export const readCSV = (csvPath) => {
   const results = [];
+  let skipHeaderRow = true;
 
   const decideLevel = (exp) => {
     return exp>=7 ? 3 : exp>=4 ? 2 : 1;
@@ -15,19 +16,26 @@ export const readCSV = (csvPath) => {
   return new Promise((resolve, reject) => {
     results.length = 0; 
     fs.createReadStream(csvPath)
-      .pipe(csv())
-      .on('data', (data) => results.push({
-        name: data['Enter your name:'],
-        firstPref: data['What is your first preferred committee?'],
-        secondPref: data['What is your second preferred committee? (cannot be identical to first preferred committee)'],
-        contactNo: data['Personal contact number:'],
-        email: data['Enter your email:'],
-        school: data['Enter the name of your school:'],
-        previousExperience: decideLevel(data['How many MUNs have you been to?']),
-        committee: "",
-      }))
+      .pipe(csv({
+        skipLines: 1,
+        headers: ["Timestamp", "Name", "Email", "School", "ContactNo", "Experience", "FirstPref", "SecondPref"]
+      }))      .on('data', (data) => {
+        if (skipHeaderRow && data['Name'] === 'Enter your name:') {
+          skipHeaderRow = false;
+          return;
+        }
+        results.push({
+          name: data['Name'],
+          firstPref: data['FirstPref'],
+          secondPref: data['SecondPref'],
+          contactNo: data['ContactNo'],
+          email: data['Email'],
+          school: data['School'],
+          previousExperience: decideLevel(data['Experience']),
+          committee: "",
+        });
+      })
       .on('end', () => {
-        console.log( typeof results[0].previousExperience)
         writeToJson("output.json",results);
         resolve();
       })

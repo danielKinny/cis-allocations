@@ -1,26 +1,152 @@
-[
-    {
+[    {
         "name": "UNSC",
-        "max": 5,
+        "max": 25,
         "current": 0,
-        "dels": []
-    },
-    {
+        "dels": [],
+        "level": 3
+    },    {
         "name": "UNGA",
-        "max": 10,
+        "max": 35,
         "current": 0,
-        "dels": []
-    },
-    {
+        "dels": [],
+        "level": 2
+    },    {
         "name": "UNHRC",
-        "max": 10,
+        "max": 20,
         "current": 0,
-        "dels": []
-    },
-    {
+        "dels": [],
+        "level": 2
+    },    {
         "name": "UNESCO",
-        "max": 5,
+        "max": 15,
         "current": 0,
-        "dels": []
+        "dels": [],
+        "level": 1
+    },{
+        "name": "ECOSOC",
+        "max": 25,
+        "current": 0,
+        "dels": [],
+        "level": 2
+    },    {
+        "name": "UNDP",
+        "max": 20,
+        "current": 0,
+        "dels": [],
+        "level": 1
+    },    {
+        "name": "UNEP",
+        "max": 15,
+        "current": 0,
+        "dels": [],
+        "level": 1
+    },{
+        "name": "WHO",
+        "max": 30,
+        "current": 0,
+        "dels": [],
+        "level": 2
+    },    {
+        "name": "ILO",
+        "max": 15,
+        "current": 0,
+        "dels": [],
+        "level": 1
+    },    {
+        "name": "FAO",
+        "max": 15,
+        "current": 0,
+        "dels": [],
+        "level": 1
+    },    {
+        "name": "UNICEF",
+        "max": 20,
+        "current": 0,
+        "dels": [],
+        "level": 1
+    },{
+        "name": "UNHCR",
+        "max": 20,
+        "current": 0,
+        "dels": [],
+        "level": 2
+    },    {
+        "name": "UN-WOMEN",
+        "max": 15,
+        "current": 0,
+        "dels": [],
+        "level": 2
+    },    {
+        "name": "UNIDO",
+        "max": 15,
+        "current": 0,
+        "dels": [],
+        "level": 1
+    },{
+        "name": "DISEC",
+        "max": 25,
+        "current": 0,
+        "dels": [],
+        "level": 3
+    },    {
+        "name": "SPECPOL",
+        "max": 20,
+        "current": 0,
+        "dels": [],
+        "level": 2
+    },    {
+        "name": "SOCHUM",
+        "max": 20,
+        "current": 0,
+        "dels": [],
+        "level": 2
+    },{
+        "name": "LEGAL",
+        "max": 15,
+        "current": 0,
+        "dels": [],
+        "level": 3
+    },    {
+        "name": "WTO",
+        "max": 15,
+        "current": 0,
+        "dels": [],
+        "level": 2
+    },{
+        "name": "IMF",
+        "max": 20,
+        "current": 0,
+        "dels": [],
+        "level": 3
+    },    {
+        "name": "ICC",
+        "max": 15,
+        "current": 0,
+        "dels": [],
+        "level": 3
+    },    {
+        "name": "ICJ",
+        "max": 15,
+        "current": 0,
+        "dels": [],
+        "level": 3
+    },    {
+        "name": "UNEA",
+        "max": 20,
+        "current": 0,
+        "dels": [],
+        "level": 1
+    },{
+        "name": "UNFCCC",
+        "max": 20,
+        "current": 0,
+        "dels": [],
+        "level": 2
+    },    {
+        "name": "UNPBC",
+        "max": 15,
+        "current": 0,
+        "dels": [],
+        "level": 2
     }
 ]
